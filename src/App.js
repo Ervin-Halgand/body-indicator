@@ -11,11 +11,13 @@ import Home from './view/Home/Home'
 import Imc from './view/Imc/Imc'
 import Metabolisme from './view/Metabolisme/Metabolisme'
 import FFMI from './view/FFMI/Ffmi';
+import BackgroundCircle from '../src/components/Design/BackgroundCircle/backgroundCircle'
 
 function App() {
   return (
     <div className="app">
       <Router >
+        <BackgroundCircle />
         <Switch>
           <Route path="/" exact>
             <Home />

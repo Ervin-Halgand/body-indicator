@@ -1,0 +1,63 @@
+
+.bg__circles {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .bg__circles>div {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+  }
+  
+  .bg__circles__circle1 {
+    height: 60px;
+    width: 60px;
+    background-color: blue;
+    left: 5%;
+    top: 10%;
+    opacity: .3;
+    animation: zoomInOut 8s linear alternate infinite;
+    transform: scale(0.5);
+  }
+  
+  .bg__circles__circle2 {
+    height: 70px;
+    width: 70px;
+    background-color: var(--main-color);
+    right: 2%;
+    bottom: 2%;
+    opacity: .4;
+    transform: translate3d(-100px, 0, 0);
+    animation: slideIn 10s ease-in-out alternate infinite
+  }
+  
+  .bg__circles__circle3 {
+    height: 60px;
+    width: 60px;
+    background-color: gold;
+    right: 15%;
+    top: 20%;
+    opacity: .4;
+    transform: translate3d(0, -100px, 0);
+    animation: slideIn 10s ease-in-out alternate infinite
+  }
+  
+  .bg__circles__circle4 {
+    height: 60px;
+    width: 60px;
+    background-color: orange;
+    left: 25%;
+    bottom: 4%;
+    opacity: .4;
+    transform: scale(0.8);
+    animation: zoomInOut 5s 2s ease-in-out alternate infinite
+  }
+  
+  @keyframes zoomInOut {
+    to {
+      transform: scale(1.2);
+    }
+  }
