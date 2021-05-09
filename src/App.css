@@ -1,0 +1,7 @@
+.app {
+  height: 90vh;
+  background-color: var(--white-alpha-40);
+  border: 1px solid var(--white-alpha-25);
+  border-radius: 30px;
+  backdrop-filter: var(--backdrop-filter-blur);
+}

@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(to bottom right, var(--pink-light), var(--cyan-light));
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  padding: 5vh;
+  font-weight: 300;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+input {
+  font-weight: 500;
+  color: var(--blue-dark);
+  font-family: 'Poppins', sans-serif;
+}
+
+input::placeholder {
+  font-family: 'Poppins', sans-serif;
+  color: var(--blue-dark);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+:root {
+  --main-color: #e02f6b;
+  --blue: #0000ff;
+  --blue-dark: #18293c;
+  --pink-light: #efa2b4;
+  --cyan-light: #aef1ee;
+  --white-alpha-40: rgba(255, 255, 255, 0.4);
+  --white-alpha-25: rgba(255, 255, 255, 0.25);
+  --backdrop-filter-blur: blur(5px);
+  --border-light: 10px;
+  --border-circle: 50%;
+}

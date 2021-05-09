@@ -1,0 +1,124 @@
+.imc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.imc__input {
+    height: 100%;
+    width: 100%;
+    background-color: var(--white-alpha-40);
+    border: 1px solid var(--white-alpha-25);
+    border-radius: var(--border-light);
+    padding-left: 13px;
+}
+
+.imc__info {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.imc__info__score {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate3d(-50%, 50%, 0);
+    font-size: 40px;
+    font-weight: 400;
+    transition: opacity .5s ease-in-out;
+    opacity: 0;
+    color: var(--main-color);
+}
+
+.imc__info__score__show {
+    opacity: 1;
+}
+
+.imc__input__container {
+    position: relative;
+    height: 50px;
+    width: 300px;
+}
+
+.imc__img {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.imc__title {
+    color: var(--blue-dark);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: absolute;
+    top: -23px;
+    left: 50%;
+    opacity: 0;
+    transform: translate3d(-50%, -100px, 0);
+    animation: slideBottom 1s 2.5s forwards;
+}
+
+.imc__navigate__back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 23px;
+    margin-top: 20px;
+}
+
+.imc__navigate__back {
+    opacity: 0;
+    transform: translate3d(-100px, 0, 0);
+    animation: slideRight 1s 2.5s forwards;
+}
+
+@keyframes slideRight {
+    to {
+        opacity: 1;
+        transform: translate3d(0px, 0, 0);
+    }
+}
+
+@keyframes slideBottom {
+    to {
+        opacity: 1;
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.taille::after, .poid::after, .age::after {
+    font-weight: 500;
+    color: var(--main-color);
+    font-size: 14px;
+    position: absolute;
+    bottom: 50%;
+    right: 30px;
+    content: 'cm';
+    transform: translate3d(0, 50%, 0px);
+}
+
+.taille, .poid, .age {
+    opacity: 0;
+    animation: slideRight 1s 3s forwards;
+}
+
+.poid {
+    transform: translate3d(100px, 0, 0);
+}
+
+.taille {
+    transform: translate3d(-100px, 0, 0);
+}
+
+.poid::after {
+    content: 'Kg';
+}
+
+.age::after {
+    content: 'y';
+}

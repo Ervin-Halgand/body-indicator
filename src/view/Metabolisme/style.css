@@ -1,0 +1,134 @@
+.metabolisme {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.metabolisme__sexe, .metabolisme__body {
+    gap: 12px;
+    display: flex;
+    width: 500px;
+}
+
+.metabolisme__sexe>div:first-child {
+    transform: translate3d(-100px, 0, 0);
+    opacity: 0;
+    animation: slideRight 1.5s 3s forwards;
+}
+
+.metabolisme__sexe>div:last-child {
+    transform: translate3d(100px, 0, 0);
+    opacity: 0;
+    animation: slideRight 1.5s 3s forwards;
+}
+
+.metabolisme__activity__container, .metabolisme__container {
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.metabolisme__result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.metabolisme__result__section2 {
+    display: flex;
+}
+
+.metabolisme__activity__container_info {
+    width: 100%;
+}
+
+.metabolisme__activity__container_info1 {
+    transform: translate3d(-100px, 0, 0);
+    animation: ease-out slideRight 1.5s 3s forwards;
+}
+
+.metabolisme__activity__container_info2 {
+    transform: translate3d(100px, 0, 0);
+    animation: ease-out slideRight 1.5s 3s forwards;
+}
+
+.metabolisme__activity__container_info3 {
+    transform: translate3d(-100px, 0, 0);
+    animation: ease-out slideRight 1.5s 3s forwards;
+}
+
+.metabolisme__result__circle>div:first-child::after {
+    content: 'kc';
+    color: var(--main-color);
+    position: absolute;
+    right: 85px;
+}
+
+.metabolisme__activity__container>.card:nth-child(odd) {
+    opacity: 0;
+    transform: translate3d(-100px, 0, 0);
+    animation: ease-out slideRight 1.5s 3s forwards;
+}
+
+.metabolisme__activity__container>.card:nth-child(even) {
+    opacity: 0;
+    transform: translate3d(100px, 0, 0);
+    animation: ease-out slideRight 1.5s 3s forwards;
+}
+
+.metabolisme__activity__container:nth-child(3) {
+    opacity: 0;
+    transform: translate3d(100px, 0, 0);
+    animation: ease-out slideRight 1.5s 3s forwards;
+}
+
+.metabolisme__result__section2>div:nth-child(1) {
+    opacity: 0;
+    animation: opacityIn .5s forwards;
+}
+
+.metabolisme__result__section2>div:nth-child(2) {
+    opacity: 0;
+    animation: opacityIn .5s forwards;
+}
+
+.metabolisme__result>div:nth-child(1) {
+    opacity: 0;
+    animation: opacityIn .5s forwards;
+}
+
+.metabolisme__result>.metabolisme__result__circle__container>.metabolisme__result__circle, .metabolisme__result__section2>.metabolisme__result__circle__container>.metabolisme__result__circle {
+    transform: scale(1);
+    animation: linear scaleAnimation 1s .5s forwards;
+}
+
+.metabolisme__result>.metabolisme__result__circle__container>.metabolisme__result__circle__container__coloration, .metabolisme__result__section2>.metabolisme__result__circle__container>.metabolisme__result__circle__container__coloration {
+    animation: linear onlyTranslate0 1s 1.6s forwards;
+}
+
+.metabolisme__result>.metabolisme__result__circle__container>.metabolisme__result__circle>div, .metabolisme__result__section2>.metabolisme__result__circle__container>.metabolisme__result__circle>div {
+    opacity: 0;
+    animation: linear onlyOpacity 1s .5s forwards;
+}
+
+@keyframes scaleAnimation {
+    to {
+        transform: scale(.9);
+    }
+}
+
+@keyframes onlyTranslate0 {
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes onlyOpacity {
+    to {
+        opacity: 1;
+    }
+}
