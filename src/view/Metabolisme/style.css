@@ -29,6 +29,36 @@
     display: flex;
     flex-direction: column;
     width: 500px;
+    position: relative;
+}
+
+.metabolisme__activity__container__desc {
+    opacity: 0;
+    transition: opacity .2s linear;
+    position: absolute;
+    bottom: -100px;
+    text-align: center;
+    padding: 10px 25px;
+    background-color: var(--white-alpha-40);
+    border: 1px solid var(--white-alpha-25);
+    border-radius: var(--border-light);
+    width: 100%;
+    min-height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    animation: allowHover 0s 4.5s forwards;
+}
+
+@keyframes allowHover {
+    to {
+        visibility: visible
+    }
+}
+
+.opacity1 {
+    opacity: 1;
 }
 
 .metabolisme__result {
@@ -75,12 +105,6 @@
 }
 
 .metabolisme__activity__container>.card:nth-child(even) {
-    opacity: 0;
-    transform: translate3d(100px, 0, 0);
-    animation: ease-out slideRight 1.5s 3s forwards;
-}
-
-.metabolisme__activity__container:nth-child(3) {
     opacity: 0;
     transform: translate3d(100px, 0, 0);
     animation: ease-out slideRight 1.5s 3s forwards;

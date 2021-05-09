@@ -3,12 +3,13 @@ import './style.css'
 import { NavLink } from 'react-router-dom'
 import Button from '../../components/Button/Button'
 import SelectCard from '../../components/Select/SelectCard/SelectCard'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { metabolismeMenCalculation, metabolismeWomanCalculation, activities } from '../../helpers/Metabolisme/data'
 import { updateCounter } from '../../helpers/Metabolisme/counterUpdate';
 import CircleCard from '../../components/CircleCard/CircleCard'
 
 const Metabolisme = () => {
+
 
     let refs = { metabolismeBase: useRef(null), physicalActivity: useRef(null), metabolismeTotal: useRef(null) };
     const [size, setSize] = useState(0);
@@ -17,8 +18,14 @@ const Metabolisme = () => {
     const [age, setAge] = useState(0);
     const [sexe, setSexe] = useState("");
     const [activity, setActivity] = useState("");
+    const [activityDesc, setActivityDesc] = useState("");
+    const [activityDescIsHover, setActivityDescIsHover] = useState(false);
+    useEffect(() => {
+        console.log(activityDesc.length);
+        console.log(activityDescIsHover);
+    }, [activityDesc, activityDescIsHover])
 
-    const handleMetabolisme = (activityBis, sexeBis) => {
+    const handleMetabolisme = () => {
         if (size === 0 || weight === 0 || age === 0 || activity.length < 1 || sexe.length < 1)
             return '';
         if (hasChanged === false)
@@ -67,7 +74,11 @@ const Metabolisme = () => {
                     <input onChange={(e) => { setAge(e.target.value); }} placeholder="Age" className="imc__input" type="number" min="10" />
                 </div>
                 <div className="metabolisme__activity__container">
-                    {activities.map((value, i) => <SelectCard key={i} title={value.text} callBack={handleCurrentActivity} isActive={activity === value.text} />)}
+                    {activities.map((value, i) => <SelectCard onMouseLeave={setActivityDescIsHover} onMouseEnter={setActivityDesc}
+                        desc={value.desc} title={value.text} callBack={handleCurrentActivity} isActive={activity === value.text} />)}
+                    <div className={`metabolisme__activity__container__desc ${activityDescIsHover && "opacity1"}`}>
+                        {activityDesc}
+                    </div>
                 </div>
 
             </div>
