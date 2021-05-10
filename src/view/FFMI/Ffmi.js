@@ -16,8 +16,8 @@ const FFMI = () => {
             return;
         const freeMass = weight * (1 - (fat / 100));
         const FFMI = (freeMass / (Math.pow((size / 100), 2))).toFixed(2);
-        let newPos = (((FFMI - 16) * 100) / 15);
         const NormalizeFFMI = (parseFloat(FFMI) + (6.1 * (1.8 - (size / 100)))).toFixed(2);
+        let newPos = (((NormalizeFFMI - 16) * 100) / 15);
         setFfmi(NormalizeFFMI);
         if (FFMI < 16)
             newPos = 0;

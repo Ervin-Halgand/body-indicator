@@ -13,23 +13,21 @@ const Metabolisme = () => {
 
     let refs = { metabolismeBase: useRef(null), physicalActivity: useRef(null), metabolismeTotal: useRef(null) };
     const [size, setSize] = useState(0);
-    const [hasChanged, setHasChanged] = useState(false);
     const [weight, setWeight] = useState(0);
     const [age, setAge] = useState(0);
     const [sexe, setSexe] = useState("");
     const [activity, setActivity] = useState("");
     const [activityDesc, setActivityDesc] = useState("");
     const [activityDescIsHover, setActivityDescIsHover] = useState(false);
+
     useEffect(() => {
-        console.log(activityDesc.length);
-        console.log(activityDescIsHover);
-    }, [activityDesc, activityDescIsHover])
+        handleMetabolisme();
+        // eslint-disable-next-line
+    }, [size, weight, age, activity, sexe])
 
     const handleMetabolisme = () => {
         if (size === 0 || weight === 0 || age === 0 || activity.length < 1 || sexe.length < 1)
             return '';
-        if (hasChanged === false)
-            setHasChanged(true);
         let mb;
         if (sexe === "Homme")
             mb = metabolismeMenCalculation(weight, size, age);
@@ -41,16 +39,6 @@ const Metabolisme = () => {
         updateCounter(refs.physicalActivity, physicalActivity);
     }
 
-    const handleCurrentActivity = (value) => {
-        setActivity(value);
-        setHasChanged(false);
-    }
-
-    const handleSexe = (value) => {
-        setSexe(value);
-        setHasChanged(false);
-    }
-    handleMetabolisme(activity, sexe);
     return (
         <div className="metabolisme">
             <div className="imc__navigate__back">
@@ -61,8 +49,8 @@ const Metabolisme = () => {
             <h1 className="imc__title">Métabolisme basale</h1>
             <div className="metabolisme__container">
                 <div className="metabolisme__sexe">
-                    <SelectCard title="Homme" callBack={handleSexe} isActive={sexe === "Homme"} />
-                    <SelectCard title="Femme" callBack={handleSexe} isActive={sexe === "Femme"} />
+                    <SelectCard title="Homme" callBack={setSexe} isActive={sexe === "Homme"} />
+                    <SelectCard title="Femme" callBack={setSexe} isActive={sexe === "Femme"} />
                 </div>
                 <div className="imc__input__container taille metabolisme__activity__container_info metabolisme__activity__container_info1">
                     <input onChange={(e) => { setSize(e.target.value); }} placeholder="Taille" className="imc__input" type="number" min="50" />
@@ -74,8 +62,8 @@ const Metabolisme = () => {
                     <input onChange={(e) => { setAge(e.target.value); }} placeholder="Age" className="imc__input" type="number" min="10" />
                 </div>
                 <div className="metabolisme__activity__container">
-                    {activities.map((value, i) => <SelectCard onMouseLeave={setActivityDescIsHover} onMouseEnter={setActivityDesc}
-                        desc={value.desc} title={value.text} callBack={handleCurrentActivity} isActive={activity === value.text} />)}
+                    {activities.map((value, i) => <SelectCard key={i} onMouseLeave={setActivityDescIsHover} onMouseEnter={setActivityDesc}
+                        desc={value.desc} title={value.text} callBack={setActivity} isActive={activity === value.text} />)}
                     <div className={`metabolisme__activity__container__desc ${activityDescIsHover && "opacity1"}`}>
                         {activityDesc}
                     </div>
