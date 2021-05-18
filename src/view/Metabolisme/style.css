@@ -7,29 +7,34 @@
 }
 
 .metabolisme__sexe, .metabolisme__body {
-    gap: 12px;
     display: flex;
     width: 500px;
+    margin-bottom: 10px;
 }
 
 .metabolisme__sexe>div:first-child {
+    margin-right: 5px;
     transform: translate3d(-100px, 0, 0);
     opacity: 0;
     animation: slideRight 1.5s 3s forwards;
 }
 
 .metabolisme__sexe>div:last-child {
+    margin-left: 5px;
     transform: translate3d(100px, 0, 0);
     opacity: 0;
     animation: slideRight 1.5s 3s forwards;
 }
 
 .metabolisme__activity__container, .metabolisme__container {
-    gap: 12px;
     display: flex;
     flex-direction: column;
     width: 500px;
     position: relative;
+}
+
+.metabolisme__activity__container > div {
+    margin-bottom: 10px;
 }
 
 .metabolisme__activity__container__desc {
@@ -74,6 +79,7 @@
 
 .metabolisme__activity__container_info {
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .metabolisme__activity__container_info1 {
@@ -154,5 +160,46 @@
 @keyframes onlyOpacity {
     to {
         opacity: 1;
+    }
+}
+
+@media (max-width: 1500px) {
+    .metabolisme__sexe, .metabolisme__body, .metabolisme__sexe,
+    .metabolisme__body, .metabolisme__container, .metabolisme__activity__container, .metabolisme__container {
+        width: 300px;
+    }
+}
+
+@media (max-width: 900px) {
+    .metabolisme {
+        flex-wrap: wrap-reverse;
+        align-content: flex-end;
+    }
+    .metabolisme__container {
+        width: 90%;
+    }
+    .metabolisme__sexe, .metabolisme__body, .metabolisme__activity__container {
+        width: 100%;
+    }
+    .metabolisme__result__circle__container {
+        width: 90px !important;
+        height: 90px !important;
+    }
+    .metabolisme__result {
+        flex-direction: row;
+    }
+    .metabolisme__result__card__title {
+        font-size: 10px !important;
+        ;
+        text-align: center;
+    }
+    .metabolisme__result__circle>div:first-child::after {
+        right: 7px;
+    }
+    .metabolisme__result {
+        padding-bottom: 26px;
+    }
+    .metabolisme__result>div:first-child {
+        margin-left: 0px;
     }
 }

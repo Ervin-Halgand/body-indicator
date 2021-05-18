@@ -22,7 +22,6 @@
     width: 500px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
 }
 
 .ffmi__input__container__info3 {
@@ -229,4 +228,20 @@
     to {
         transform: translate3d(110%, 0, 0);
     }
+}
+
+@media (max-width: 600px) {
+    .ffmi__input__container {
+        width: 90%;
+    }
+    .bar__item::before {
+        content: '' !important;
+    }
+    .bar__item:nth-child(even) {
+        display: none;
+    }
+}
+
+#root {
+    width: 100%;
 }

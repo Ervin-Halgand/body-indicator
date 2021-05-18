@@ -73,3 +73,17 @@
         transform: translate3d(0, 0, 0);
     }
 }
+
+@media (max-width: 1000px) {
+    .home {
+        flex-direction: column;
+    }
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .app {
+        padding: 5vh;
+    }
+}

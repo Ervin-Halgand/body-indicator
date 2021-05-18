@@ -2,7 +2,7 @@ import "./style.css"
 
 const Image = ({ image, alt, containerColor, desc, desc2, title, active }) => {
     return (
-        <section className={`main__container ${active && "active"}`}>
+        <section className={`main__container ${active && "active__card"}`}>
             <div className="img__container">
                 <img className="img__container__img" src={image} alt={alt} />
                 <div className="img__container__info">

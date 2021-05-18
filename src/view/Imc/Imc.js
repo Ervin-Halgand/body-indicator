@@ -13,7 +13,6 @@ const Imc = () => {
     const [activeCard, setActiveCard] = useState(undefined);
     const [IMC, setIMC] = useState(0);
     const ImcCalcul = () => {
-        console.log(weight, length);
         if (weight <= 10 || length <= 50) {
             setIMC('');
             return;
@@ -47,25 +46,31 @@ const Imc = () => {
         // eslint-disable-next-line
     }, [weight, length])
     return (
-        <div className="imc">
-            <div className="imc__navigate__back">
-                <NavLink to="/">
-                    <Button title="Home" />
-                </NavLink>
-            </div>
-            <h1 className="imc__title">IMC</h1>
-            <div className="imc__info">
-                <div className={`imc__info__score ${IMC.length > 1 && 'imc__info__score__show'}`} style={{ color: color }} >{IMC}</div>
-                <div className="imc__input__container taille">
-                    <input onChange={(e) => setLength(e.target.value)} placeholder="Taille" className="imc__input" type="number" min="100" max="250"/>
+        <div className="main__container__page">
+            <div className="navigation__title">
+                <div className="imc__navigate__back">
+                    <NavLink to="/">
+                        <Button title="Home" />
+                    </NavLink>
                 </div>
-                <div className="imc__input__container poid">
-                    <input onChange={(e) => setWeight(e.target.value)} placeholder="Poid" className="imc__input" type="number" min="30" />
+                <div className="imc__title__container">
+                    <h1 className="imc__title">IMC</h1>
                 </div>
             </div>
-            <div className="imc__img">
-                {ImcDescriptionCard.map((card, i) => <Image key={i} image={card.image} alt={card.alt}
-                    containerColor={card.containerColor} title={card.title} desc={card.desc} desc2={card?.desc2} active={activeCard === i} />)}
+            <div className="imc">
+                <div className="imc__info">
+                    <div className={`imc__info__score ${IMC.length > 1 && 'imc__info__score__show'}`} style={{ color: color }} >{IMC}</div>
+                    <div className="imc__input__container taille">
+                        <input onChange={(e) => setLength(e.target.value)} placeholder="Taille" className="imc__input" type="number" min="100" max="250" />
+                    </div>
+                    <div className="imc__input__container poid">
+                        <input onChange={(e) => setWeight(e.target.value)} placeholder="Poid" className="imc__input" type="number" min="30" />
+                    </div>
+                </div>
+                <div className="imc__img">
+                    {ImcDescriptionCard.map((card, i) => <Image key={i} image={card.image} alt={card.alt}
+                        containerColor={card.containerColor} title={card.title} desc={card.desc} desc2={card?.desc2} active={activeCard === i} />)}
+                </div>
             </div>
         </div>
     )

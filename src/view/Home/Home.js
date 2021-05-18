@@ -9,7 +9,7 @@ const Home = () => {
                 <div className="home__link">imc</div>
             </NavLink>
             <NavLink to="/metabolisme">
-                <div className="home__link">Metabolisme basal</div>
+                <div className="home__link">Metabolisme</div>
             </NavLink>
             <NavLink to="/ffmi">
                 <div className="home__link">ffmi</div>

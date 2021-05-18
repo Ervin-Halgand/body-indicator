@@ -31,35 +31,41 @@ const FFMI = () => {
         // eslint-disable-next-line
     }, [size, weight, fat])
     return (
-        <div className="ffmi">
-            <div className="imc__navigate__back">
-                <NavLink to="/">
-                    <Button title="Home" />
-                </NavLink>
-            </div>
-            <h1 className="imc__title">ffmi</h1>
-            <div className="ffmi__input__container">
-                <div className="imc__input__container taille metabolisme__activity__container_info metabolisme__activity__container_info1">
-                    <input onChange={(e) => { setSize(e.target.value); }} placeholder="Taille" className="imc__input" type="number" min="50" />
+        <div className="main__container__page">
+            <div className="navigation__title">
+                <div className="imc__navigate__back">
+                    <NavLink to="/">
+                        <Button title="Home" />
+                    </NavLink>
                 </div>
-                <div className="imc__input__container poid metabolisme__activity__container_info metabolisme__activity__container_info2">
-                    <input onChange={(e) => { setWeight(e.target.value); }} placeholder="Poid" className="imc__input" type="number" min="10" />
-                </div>
-                <div className="imc__input__container fat metabolisme__activity__container_info ffmi__input__container__info3">
-                    <input onChange={(e) => { setFat(e.target.value); }} placeholder="Gras" className="imc__input" type="number" min="0" max="100" />
+                <div className="imc__title__container">
+                    <h1 className="imc__title">FFMI</h1>
                 </div>
             </div>
-            <div ref={barRef} className="bar__main__container">
-                <div className="bar__container__indicator__container">
-                    <span style={ffmi > 0 ? { opacity: 1 } : { opacity: 0 }}> {ffmi}</span>
-                    <img src={iconBiceps} className="bar__container__indicator" alt="indicator" />
+            <div className="ffmi">
+                <div className="ffmi__input__container">
+                    <div className="imc__input__container taille metabolisme__activity__container_info metabolisme__activity__container_info1">
+                        <input onChange={(e) => { setSize(e.target.value); }} placeholder="Taille" className="imc__input" type="number" min="50" />
+                    </div>
+                    <div className="imc__input__container poid metabolisme__activity__container_info metabolisme__activity__container_info2">
+                        <input onChange={(e) => { setWeight(e.target.value); }} placeholder="Poid" className="imc__input" type="number" min="10" />
+                    </div>
+                    <div className="imc__input__container fat metabolisme__activity__container_info ffmi__input__container__info3">
+                        <input onChange={(e) => { setFat(e.target.value); }} placeholder="Gras" className="imc__input" type="number" min="0" max="100" />
+                    </div>
                 </div>
-                <div className="bar__container">
-                    {(() => {
-                        let barItem = []
-                        for (let i = 16; i <= 30; i++) barItem.push(<div className="bar__item"><span>{i}</span></div>)
-                        return barItem;
-                    })()}
+                <div ref={barRef} className="bar__main__container">
+                    <div className="bar__container__indicator__container">
+                        <span style={ffmi > 0 ? { opacity: 1 } : { opacity: 0 }}> {ffmi}</span>
+                        <img src={iconBiceps} className="bar__container__indicator" alt="indicator" />
+                    </div>
+                    <div className="bar__container">
+                        {(() => {
+                            let barItem = []
+                            for (let i = 16; i <= 30; i++) barItem.push(<div key={i} className="bar__item"><span>{i}</span></div>)
+                            return barItem;
+                        })()}
+                    </div>
                 </div>
             </div>
         </div>
