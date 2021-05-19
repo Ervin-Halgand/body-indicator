@@ -40,8 +40,6 @@
 .metabolisme__activity__container__desc {
     opacity: 0;
     transition: opacity .2s linear;
-    position: absolute;
-    bottom: -100px;
     text-align: center;
     padding: 10px 25px;
     background-color: var(--white-alpha-40);
@@ -80,6 +78,7 @@
 .metabolisme__activity__container_info {
     width: 100%;
     margin-bottom: 10px;
+    max-height: 47px;
 }
 
 .metabolisme__activity__container_info1 {
@@ -167,6 +166,15 @@
     .metabolisme__sexe, .metabolisme__body, .metabolisme__sexe,
     .metabolisme__body, .metabolisme__container, .metabolisme__activity__container, .metabolisme__container {
         width: 300px;
+    }
+}
+
+@media (max-height: 800px) {
+    .card {
+        padding: 5px 25px !important;
+    }
+    .metabolisme__activity__container_info {
+        max-height: 37px !important;
     }
 }
 
